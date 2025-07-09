@@ -1,0 +1,90 @@
+<!-- Déclaration du type de document HTML -->
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- Encodage des caractères -->
+  <meta charset="UTF-8" />
+
+  <!-- Titre dynamique selon la page (via EJS) -->
+  <title><%= title %></title>
+
+  <!-- Feuille de style principale -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Bibliothèque d'icônes FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Responsive : permet un bon affichage sur mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+
+  <!-- 🔹 Barre de navigation principale -->
+  <nav>
+    <div class="nav-container">
+
+      <!-- Liens de navigation avec activation dynamique -->
+      <div class="nav-links">
+        <a href="/" class="<%= title === 'Accueil' ? 'active' : '' %>">Accueil</a>
+        <a href="/services" class="<%= title === 'Nos services' ? 'active' : '' %>">Nos services</a>
+        <a href="/contact" class="<%= title === 'Contactez-nous' ? 'active' : '' %>">Contactez-nous</a>
+      </div>
+
+      <!-- Bouton de changement de thème clair/sombre -->
+      <button id="themeToggle" class="theme-btn">🌓</button>
+
+      <!-- Menu hamburger pour mobile -->
+      <div class="nav-toggle" id="navToggle" aria-label="Menu" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 🔸 Contenu principal de chaque page injecté ici -->
+  <main>
+    <%- body %> <!-- Corps de la page, injecté depuis les vues EJS -->
+  </main>
+
+  <!-- 🔻 Pied de page -->
+  <footer>
+    <div class="footer-container">
+
+      <!-- Plan du site -->
+      <div class="footer-section">
+        <h3>Plan du site</h3>
+        <ul>
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/services">Nos services</a></li>
+          <li><a href="/contact">Contactez-nous</a></li>
+        </ul>
+      </div>
+
+      <!-- Informations de contact -->
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Email : contact@monsite.com</p>
+        <p>Tél : +221 33 876 45 67</p>
+      </div>
+
+      <!-- Réseaux sociaux avec icônes -->
+      <div class="footer-section">
+        <h3>Suivez-nous</h3>
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mention légale -->
+    <p class="footer-copy">&copy; 2025 Phina DIOUF Site Express. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Script pour le changement de thème -->
+  <script src="/js/theme.js" defer></script>
+</body>
+</html>
